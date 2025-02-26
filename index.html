@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Práctica 1 Interfaces Web</title>
+  <style>
+    body {
+      font-family: Comic Sans MS;
+      margin: 20px;
+    }
+   
+  </style>
+</head>
+<body>
+  <h1>Práctica 1 Interfaces Web</h1>
+
+  <!-- Módulo 1 -->
+  <div class="module">
+    <div class="module-header">
+      <h2>Módulo 1</h2>
+      <button onclick="toggleModule(1)">Mostrar más</button>
+    </div>
+    <div class="module-content" id="module-content-1">
+      <p id="module-text-1">
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?""Sed ut perspiciatis unde omnis iste natus e rror sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione volupta"
+      </p>
+      <input type="text" placeholder="Escribe algo..." oninput="updateText(1, this.value)">
+    </div>
+  </div>
+
+  <!-- Módulo 2 -->
+  <div class="module">
+    <div class="module-header">
+      <h2>Módulo 2</h2>
+      <button onclick="toggleModule(2)">Mostrar más</button>
+    </div>
+    <div class="module-content" id="module-content-2">
+
+      <p id="module-text-2">
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?""Sed ut perspiciatis unde omnis iste natus e rror sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione volupta"
+      </p>
+      <input type="text" placeholder="Escribe algo..." oninput="updateText(2, this.value)">
+    </div>
+  </div>
+
+  <!-- Módulo 3 -->
+  <div class="module">
+    <div class="module-header">
+      <h2>Módulo 3</h2>
+      <button onclick="toggleModule(3)">Mostrar más</button>
+    </div>
+    <div class="module-content" id="module-content-3">
+
+      <p id="module-text-3">
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?""Sed ut perspiciatis unde omnis iste natus e rror sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione volupta"
+      </p>
+      <input type="text" placeholder="Escribe algo..." oninput="updateText(3, this.value)">
+    </div>
+  </div>
+
+  <script>
+    // Función para mostrar u ocultar el contenido del módulo
+    function toggleModule(num) {
+      var content = document.getElementById("module-content-" + num);
+      var button = content.previousElementSibling.querySelector("button");
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "Mostrar menos";
+      } else {
+        content.style.display = "none";
+        button.textContent = "Mostrar más";
+      }
+    }
+
+    // Función para actualizar el texto del módulo con lo que el usuario ingresa
+    function updateText(moduleNum, value) {
+      var p = document.getElementById("module-text-" + moduleNum);
+      p.textContent = value ? "Texto ingresado: " + value : "";
+    }
+  </script>
+</body>
+</html>
